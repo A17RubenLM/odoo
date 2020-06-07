@@ -59,6 +59,7 @@ class ProductTemplate(models.Model):
         'res.currency', 'Currency', compute='_compute_currency_id')
     cost_currency_id = fields.Many2one(
         'res.currency', 'Cost Currency', compute='_compute_cost_currency_id')
+    descripcion = fields.Text('Short description')  
 
     # price fields
     # price: total template price, context dependent (partner, pricelist, quantity)
@@ -148,9 +149,8 @@ class ProductTemplate(models.Model):
 
     # related to display product product information if is_product_variant
     barcode = fields.Char('Barcode', oldname='ean13', related='product_variant_ids.barcode', readonly=False)
-    default_code = fields.Char(
-        'Internal Reference', compute='_compute_default_code',
-        inverse='_set_default_code', store=True)
+    default_code = fields.Text(
+        'Default code')
 
     item_ids = fields.One2many('product.pricelist.item', 'product_tmpl_id', 'Pricelist Items')
 

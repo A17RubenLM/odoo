@@ -31,8 +31,9 @@
             <field name="categ_id" position="after">
                 <field name="default_code" attrs="{'invisible': [('product_variant_count', '>', 1)]}"/>
                 <field name="barcode" attrs="{'invisible': [('product_variant_count', '>', 1)]}"/>
+                <field name="descripcion"/>
             </field>
-
+            <field name="descripcion"/>
             <button name="toggle_active" position="before">
                 <button name="%(product.product_variant_action)d" type="action"
                     icon="fa-sitemap" class="oe_stat_button"
